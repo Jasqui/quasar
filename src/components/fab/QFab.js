@@ -20,11 +20,14 @@ export default {
     direction: {
       type: String,
       default: 'right'
-    }
+    },
+    persistOnRouteChange: Boolean
   },
   watch: {
     $route () {
-      this.hide()
+      if (!this.persistOnRouteChange){
+        this.hide()
+      }
     }
   },
   created () {
